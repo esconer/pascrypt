@@ -3,7 +3,13 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "form-black": "#161616",
+        "my-grey": "#535353",
+        "my-orange": "#C8500D",
+      },
+    },
   },
   plugins: [],
 };

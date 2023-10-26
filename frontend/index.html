@@ -5,12 +5,86 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/index.css" />
-    <title>Vite + TS</title>
+    <title>PAScrypt</title>
   </head>
   <body>
-    <div id="app">
-      <p class="text-stone-600 text-center">hi</p>
-      <div class="h-4 w-4 bg-red-600">hah</div>
+    <div class="bg-gradient-to-b from-[#0C0C0C] to-[#2B0B27] h-screen" id="app">
+      <section class="flex justify-center">
+        <nav class="bg-[#1B1622] h-16 w-4/5 rounded-b-3xl">
+          <ul
+            class="text-slate-400 p-4 flex flex-wrap space-between justify-center gap-10"
+          >
+            <li>ENCRYPT</li>
+            <li>DECRYPT</li>
+          </ul>
+        </nav>
+      </section>
+      <section class="flex justify-center items-center h-screen">
+        <div
+          class="m-4 max-w-xl w-2/3 l bg-form-black rounded-2xl drop-shadow flex justify-center max-lg:w-full"
+          id="crypt-box"
+        >
+          <form
+            action=""
+            class="p-4 text-white text-2xl max-lg:text-xl max-lg:w-full grid grid-cols-4 gap-2 max-w-md my-4"
+          >
+            <label
+              for="master-pas"
+              class="font-extralight col-span-2 max-lg:col-span-3"
+            >
+              Master password
+            </label>
+            <br />
+
+            <input
+              type="password"
+              name="master-pas"
+              id="master-pas"
+              class="rounded-md border-my-grey border-2 col-span-4"
+            />
+
+            <!-- encryption data space -->
+
+            <label
+              for="text"
+              class="font-extralight col-span-2 max-lg:col-span-3"
+            >
+              Encryption Data
+            </label>
+
+            <input
+              type="text"
+              name="master-pas"
+              id="master-pas"
+              class="rounded-md border-my-grey border-2 col-span-4"
+            />
+
+            <button
+              class="bg-my-orange mx-auto col-span-2 col-start-2 px-2 p-1 rounded-md"
+            >
+              Encrypt
+            </button>
+            <br />
+
+            <label
+              for="result"
+              class="font-extralight col-span-2 max-lg:col-span-3"
+            >
+              Result</label
+            >
+
+            <input
+              type="password"
+              name="result"
+              id="result"
+              class="rounded-md border-my-grey border-2 col-span-4"
+            />
+            <button class="rounded-md border-my-grey border-2 px-1">
+              copy
+            </button>
+          </form>
+        </div>
+      </section>
     </div>
 
     <script type="module" src="/src/main.ts"></script>
