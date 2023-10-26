@@ -29,7 +29,7 @@
             class="p-4 text-white text-2xl max-lg:text-xl max-lg:w-full grid grid-cols-4 gap-2 max-w-md my-4"
           >
             <label
-              for="master-pas"
+              for="master"
               class="font-extralight col-span-2 max-lg:col-span-3"
             >
               Master password
@@ -37,10 +37,10 @@
             <br />
 
             <input
-              type="password"
+              type="text"
               name="master-pas"
-              id="master-pas"
-              class="rounded-md border-my-grey border-2 col-span-4"
+              id="master"
+              class="text-black rounded-md border-my-grey border-2 col-span-4"
             />
 
             <!-- encryption data space -->
@@ -54,34 +54,38 @@
 
             <input
               type="text"
-              name="master-pas"
-              id="master-pas"
-              class="rounded-md border-my-grey border-2 col-span-4"
+              name="text"
+              id="text"
+              class="text-black rounded-md border-my-grey border-2 col-span-4"
             />
-
-            <button
-              class="bg-my-orange mx-auto col-span-2 col-start-2 px-2 p-1 rounded-md"
-            >
-              Encrypt
-            </button>
-            <br />
-
-            <label
-              for="result"
-              class="font-extralight col-span-2 max-lg:col-span-3"
-            >
-              Result</label
-            >
 
             <input
-              type="password"
-              name="result"
-              id="result"
-              class="rounded-md border-my-grey border-2 col-span-4"
+              type="button"
+              id="encrypt"
+              value=" Encrypt"
+              class="bg-my-orange mx-auto col-span-2 col-start-2 px-2 p-1 rounded-md"
             />
-            <button class="rounded-md border-my-grey border-2 px-1">
-              copy
-            </button>
+
+            <br />
+
+            <div id="result-element" class="hidden">
+              <label
+                for="result"
+                class="font-extralight col-span-2 max-lg:col-span-3"
+              >
+                Result</label
+              >
+
+              <input
+                type="text"
+                name="result"
+                id="result"
+                class="rounded-md text-black border-my-grey border-2 col-span-4"
+              />
+              <button class="rounded-md border-my-grey border-2 px-1">
+                copy
+              </button>
+            </div>
           </form>
         </div>
       </section>
