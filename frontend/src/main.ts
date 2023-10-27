@@ -66,7 +66,7 @@ function changeState(encryptState: boolean) {
 
       //   console.log(cryptDetail);
 
-      fetch("http://127.0.0.1:3000/encrypt", {
+      fetch("pascrypt-backend.render.com" || "http://127.0.0.1:3000/encrypt", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -104,7 +104,7 @@ function changeState(encryptState: boolean) {
         master: master,
         text: text,
       };
-      fetch("http://127.0.0.1:3000/decrypt", {
+      fetch("pascrypt-backend.render.com" || "http://127.0.0.1:3000/decrypt", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
