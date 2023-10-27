@@ -66,13 +66,16 @@ function changeState(encryptState: boolean) {
 
       //   console.log(cryptDetail);
 
-      fetch("pascrypt-backend.render.com" || "http://127.0.0.1:3000/encrypt", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(cryptDetail),
-      })
+      fetch(
+        "pascrypt-backend.onrender.com" || "http://127.0.0.1:3000/encrypt",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(cryptDetail),
+        }
+      )
         .then((res) => {
           if (!res.ok) {
             throw new Error("Network response was not ok");
@@ -104,13 +107,16 @@ function changeState(encryptState: boolean) {
         master: master,
         text: text,
       };
-      fetch("pascrypt-backend.render.com" || "http://127.0.0.1:3000/decrypt", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(cryptDetail),
-      })
+      fetch(
+        "pascrypt-backend.onrender.com" || "http://127.0.0.1:3000/decrypt",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(cryptDetail),
+        }
+      )
         .then((res) => {
           if (!res.ok) {
             throw new Error("Network response was not ok");

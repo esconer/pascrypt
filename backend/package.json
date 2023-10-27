@@ -6,7 +6,12 @@
   },
   "scripts": {
     "start": "node server.js",
-    "dev":"nodemon server.js"
+    "dev":"nodemon server.js",
+    "build":""
+  },
+  "engines": {
+    "node": ">=18 <19",
+    "npm": ">=9.6.1"
   },
  
   "name": "pascrypt",
