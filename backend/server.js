@@ -14,16 +14,35 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", function (req, res) {
   res.send("hello world");
 });
+
 app.post("/encrypt", async (req, res) => {
   const { master, text } = req.body;
+  console.log(master, text);
   const encryptedText = await encrypt(master, text);
-  res.send(encryptedText);
+  if (encryptedText) {
+    res.send(encryptedText);
+  } else {
+    res.send("something wrong").status(404);
+  }
+
+  console.log(`encryption text is:   ${encryptedText}`);
 });
+
 app.post("/decrypt", async (req, res) => {
   const { master, text } = req.body;
+  console.log(master, text);
+
   const decryptedText = await decrypt(master, text);
-  res.send(decryptedText);
+
+  if (decryptedText) {
+    res.send(decryptedText);
+  } else {
+    res.send("something wrong").status(404);
+  }
+
+  console.log(`decryption text is:   ${decryptedText}`);
 });
+
 app.listen(port, () => {
   console.log(`app listening on port ${port}`);
 });

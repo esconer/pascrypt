@@ -14,8 +14,10 @@
           <ul
             class="text-slate-400 p-4 flex flex-wrap space-between justify-center gap-10"
           >
-            <li>ENCRYPT</li>
-            <li>DECRYPT</li>
+            <li class="text-my-orange font-extrabold" id="encrypt-page">
+              ENCRYPT
+            </li>
+            <li class="hover:text-white" id="decrypt-page">DECRYPT</li>
           </ul>
         </nav>
       </section>
@@ -64,6 +66,12 @@
               id="encrypt"
               value=" Encrypt"
               class="bg-my-orange mx-auto col-span-2 col-start-2 px-2 p-1 rounded-md"
+            />
+            <input
+              type="button"
+              id="decrypt"
+              value=" Decrypt"
+              class="bg-my-green mx-auto col-span-2 col-start-2 px-2 p-1 rounded-md hidden"
             />
 
             <br />

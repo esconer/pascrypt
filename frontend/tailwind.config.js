@@ -8,6 +8,7 @@ export default {
         "form-black": "#161616",
         "my-grey": "#535353",
         "my-orange": "#C8500D",
+        "my-green": "#0DC890",
       },
     },
   },
