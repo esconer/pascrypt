@@ -67,7 +67,8 @@ function changeState(encryptState: boolean) {
       //   console.log(cryptDetail);
 
       fetch(
-        "pascrypt-backend.onrender.com" || "http://127.0.0.1:3000/encrypt",
+        "https://pascrypt-backend.onrender.com" ||
+          "http://127.0.0.1:3000/encrypt",
         {
           method: "POST",
           headers: {
@@ -108,7 +109,8 @@ function changeState(encryptState: boolean) {
         text: text,
       };
       fetch(
-        "pascrypt-backend.onrender.com" || "http://127.0.0.1:3000/decrypt",
+        "https://pascrypt-backend.onrender.com" ||
+          "http://127.0.0.1:3000/decrypt",
         {
           method: "POST",
           headers: {
