@@ -24,7 +24,7 @@ const resultElement = document.getElementById(
 const resultBox = document.getElementById("result") as HTMLInputElement;
 
 // adding event listeners to the page
-encryptPage.addEventListener("click", (e) => {
+encryptPage.addEventListener("click", () => {
   encryptState = true;
   textElement.value = "";
   resultElement.classList.add("hidden");
@@ -32,7 +32,7 @@ encryptPage.addEventListener("click", (e) => {
   changeState(encryptState);
 });
 
-decryptPage.addEventListener("click", (e) => {
+decryptPage.addEventListener("click", () => {
   encryptState = false;
   textElement.value = "";
   resultElement.classList.add("hidden");
