@@ -9,6 +9,7 @@ const decryptPage = document.getElementById("decrypt-page") as HTMLInputElement;
 const masterElement = document.getElementById("master") as HTMLInputElement;
 const textElement = document.getElementById("text") as HTMLInputElement;
 
+const copyElement = document.getElementById("copy") as HTMLInputElement;
 // changeable portion b/w page
 const cryptionType = document.querySelector(
   'label[for="text"]'
@@ -67,8 +68,8 @@ function changeState(encryptState: boolean) {
       //   console.log(cryptDetail);
 
       fetch(
-        "https://pascrypt-backend.onrender.com/encrypt" ||
-          "http://127.0.0.1:3000/encrypt",
+        // "https://pascrypt-backend.onrender.com/encrypt" ||
+        "http://127.0.0.1:3000/encrypt",
         {
           method: "POST",
           headers: {
@@ -109,8 +110,8 @@ function changeState(encryptState: boolean) {
         text: text,
       };
       fetch(
-        "https://pascrypt-backend.onrender.com/decrypt" ||
-          "http://127.0.0.1:3000/decrypt",
+        // "https://pascrypt-backend.onrender.com/decrypt" ||
+        "http://127.0.0.1:3000/decrypt",
         {
           method: "POST",
           headers: {
@@ -133,5 +134,23 @@ function changeState(encryptState: boolean) {
     });
   }
 }
+
+// const fetchHandler = (env = "dev", type) => {
+//   if (env === "production") {
+//   }
+// };
+
+//copy section
+copyElement.addEventListener("click", (e) => {
+  e.preventDefault();
+  const copied = resultBox.value;
+  navigator.clipboard.writeText(copied);
+  copyElement.innerText = "copied!";
+  copyElement.classList.add("bg-my-green");
+  setTimeout(() => {
+    copyElement.innerText = "copy";
+    copyElement.classList.remove("bg-my-green");
+  }, 4000);
+});
 
 changeState(encryptState);

@@ -13,36 +13,50 @@ const ivBytes = Buffer.from([
 ]);
 
 function generateKey(password) {
-  const saltedPassword = password + SALT;
-  const key = crypto
-    .createHash(HASH_ALGORITHM)
-    .update(saltedPassword, ENCODING)
-    .digest();
-  return key;
+  try {
+    const saltedPassword = password + SALT;
+    const key = crypto
+      .createHash(HASH_ALGORITHM)
+      .update(saltedPassword, ENCODING)
+      .digest();
+    return key;
+  } catch (error) {
+    return `something wrong with generating the key:\n ${error}`;
+  }
 }
 
 function encrypt(password, message) {
-  const key = generateKey(password);
+  try {
+    const key = generateKey(password);
 
-  const cipher = crypto.createCipheriv(AES_MODE, key, ivBytes);
-  let cipherText = cipher.update(message, ENCODING, "base64");
-  cipherText += cipher.final("base64");
+    const cipher = crypto.createCipheriv(AES_MODE, key, ivBytes);
+    let cipherText = cipher.update(message, ENCODING, "base64");
+    cipherText += cipher.final("base64");
 
-  return cipherText;
+    return cipherText;
+  } catch (err) {
+    return `something wrong while encrypting: \n ${err}`;
+  }
 }
 
 function decrypt(password, base64EncodedCipherText) {
-  const key = generateKey(password);
+  try {
+    const key = generateKey(password);
 
-  const decipher = crypto.createDecipheriv(AES_MODE, key, ivBytes);
-  let decryptedText = decipher.update(
-    base64EncodedCipherText,
-    "base64",
-    ENCODING
-  );
-  decryptedText += decipher.final(ENCODING);
+    const decipher = crypto.createDecipheriv(AES_MODE, key, ivBytes);
+    let decryptedText = decipher.update(
+      base64EncodedCipherText,
+      "base64",
+      ENCODING
+    );
+    decryptedText += decipher.final(ENCODING);
 
-  return decryptedText;
+    return decryptedText;
+  } catch (err) {
+    return `something wrong while decrypting, please check whether the master password and decryption data is correct
+    
+    :\n ${err}`;
+  }
 }
 
 module.exports = {
